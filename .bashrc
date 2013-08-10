@@ -45,16 +45,17 @@ ALERT=${BWhite}${On_Red} # Bold White on red background
 
 ## Welcome messages
 
-echo -en ${Yellow}
+echo -e ${Yellow}
 date
-echo -en ${Green}
+echo -e ${Green}
 uname -a
-echo -en ${NC}
+echo -e ${White}
 w
-
+echo -e ${Purple}
 if [ -x /usr/games/fortune ]; then
     /usr/games/fortune -s
 fi
+echo -e ${NC}
 
 ##
 
