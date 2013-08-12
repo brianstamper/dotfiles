@@ -51,10 +51,12 @@ echo -en ${Green}
 uname -a
 echo -en ${BCyan}
 w
-echo -e ${Yellow}
-acpi -V
-echo -e ${Purple}
+if [ -x /usr/bin/acpi ]; then
+    echo -e ${Yellow}
+    acpi -V
+fi
 if [ -x /usr/games/fortune ]; then
+    echo -e ${Purple}
     /usr/games/fortune -s
 fi
 echo -e ${NC}
