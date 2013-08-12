@@ -14,6 +14,10 @@ syntax on
 " Have Vim jump to the last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Set up pathogen https://github.com/tpope/vim-pathogen
+exe pathogen#infect()
+exe pathogen#helptags()
+
 " Have Vim load indentation rules and plugins according to the detected filetype.
 filetype plugin indent on
 
