@@ -51,10 +51,12 @@ echo -en ${Green}
 uname -a
 echo -en ${BCyan}
 w
-echo -e ${Yellow}
-acpi -V
-echo -e ${Purple}
+if [ -x /usr/bin/acpi ]; then
+    echo -e ${Yellow}
+    acpi -V
+fi
 if [ -x /usr/games/fortune ]; then
+    echo -e ${Purple}
     /usr/games/fortune -s
 fi
 echo -e ${NC}
@@ -78,6 +80,8 @@ shopt -s cmdhist
 shopt -s histappend histreedit histverify
 shopt -s extglob       # Necessary for programmable completion.
 
+# Avoid git commit vimrc errors by forcing git to use vim instead of vi
+git config --global core.editor vim
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_mb=$'\E[01;36m'
