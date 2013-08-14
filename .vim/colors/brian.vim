@@ -31,7 +31,7 @@ hi Question   ctermfg=DarkGreen
 hi Search     ctermfg=NONE       ctermbg=Yellow
 hi SpecialKey ctermfg=DarkBlue
 hi StatusLine  cterm=NONE ctermbg=17 ctermfg=15
-hi StatusLineNC cterm=NONE ctermbg=234 ctermfg=12
+hi StatusLineNC cterm=NONE ctermbg=234 ctermfg=7
 hi Title      ctermfg=DarkMagenta
 hi VertSplit  cterm=reverse
 hi Visual     ctermbg=NONE       cterm=reverse
