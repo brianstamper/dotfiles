@@ -198,15 +198,6 @@ esac
 
 
 
-export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
-export HISTIGNORE="&:bg:fg:ll:h"
-export HISTTIMEFORMAT="$(echo -e ${BCyan})[%d/%m %H:%M:%S]$(echo -e ${NC}) "
-export HISTCONTROL=ignoredups
-export HOSTFILE=$HOME/.hosts    # Put a list of remote hosts in ~/.hosts
-
-
-## End of parts copied (selectively) from tldp.org
-
 
 # The following are often set in /etc/profile, but just in case they're not..
 alias ll='ls -al --color=tty' 2>/dev/null
@@ -216,9 +207,14 @@ alias ls='ls --color=tty' 2>/dev/null
 # Simplfy history searching, type partial command and press up/down arrow.
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+alias h='history 20'
 
 export HISTSIZE=100000
 export HISTFILESIZE=100000
+export HISTIGNORE="&:bg:fg:ll:h"
+export HISTTIMEFORMAT="$(echo -e ${BCyan})[%F %T]$(echo -e ${NC}) "
+export HOSTFILE=$HOME/.hosts    # Put a list of remote hosts in ~/.hosts
+
 
 
 # ~/.bashrc-local allows for settings which are unique to specific machines and
