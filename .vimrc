@@ -11,6 +11,9 @@ colorscheme brian
 " Enable syntax highlighting
 syntax on
 
+" Highlight row/column
+set cursorline cursorcolumn
+
 " Have Vim jump to the last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 

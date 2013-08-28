@@ -13,6 +13,8 @@ hi Cursor   ctermfg=0   ctermbg=0
 "hi lCursor
 
 " Note: we never set 'term' because the defaults for B&W terminals are OK
+hi CursorLine   cterm=NONE ctermbg=234
+hi CursorColumn cterm=NONE ctermbg=233
 hi DiffAdd    ctermbg=LightBlue
 hi DiffChange ctermbg=LightMagenta
 hi DiffDelete ctermfg=Blue       ctermbg=LightCyan
