@@ -13,6 +13,7 @@ hi Cursor   ctermfg=0   ctermbg=0
 "hi lCursor
 
 " Note: we never set 'term' because the defaults for B&W terminals are OK
+" I never set gui colors because I have zero interest in gvim.
 hi CursorLine   cterm=NONE ctermbg=234
 hi CursorColumn cterm=NONE ctermbg=233
 hi DiffAdd    ctermbg=LightBlue
@@ -42,17 +43,17 @@ hi WarningMsg ctermfg=DarkRed
 hi WildMenu   ctermfg=Black       ctermbg=Yellow
 
 " syntax highlighting
-hi Comment    cterm=NONE ctermfg=67
+hi Comment    cterm=NONE ctermfg=43
 hi Constant   cterm=NONE ctermfg=228
 hi Identifier cterm=NONE ctermfg=114
-hi PreProc    cterm=NONE ctermfg=85
+hi PreProc    cterm=NONE ctermfg=81
 hi Special    cterm=NONE ctermfg=130
-hi Statement  cterm=bold ctermfg=159
-hi Type       cterm=bold ctermfg=179
+hi Statement  cterm=NONE ctermfg=159
+hi Type       cterm=bold ctermfg=130
 
 " custom .vim/syntax/c.vim highlighting
-hi cCustomFunc cterm=NONE ctermfg=050
-hi cCustomClass cterm=bold ctermfg=047
+hi cCustomFunc cterm=NONE ctermfg=173
+hi cCustomClass cterm=bold ctermfg=208
 
 
 " vim: sw=2
