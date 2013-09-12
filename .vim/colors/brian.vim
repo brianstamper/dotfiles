@@ -46,8 +46,13 @@ hi Comment    cterm=NONE ctermfg=67
 hi Constant   cterm=NONE ctermfg=228
 hi Identifier cterm=NONE ctermfg=114
 hi PreProc    cterm=NONE ctermfg=85
-hi Special    cterm=NONE ctermfg=214
+hi Special    cterm=NONE ctermfg=130
 hi Statement  cterm=bold ctermfg=159
-hi Type       cterm=NONE ctermfg=179
+hi Type       cterm=bold ctermfg=179
+
+" custom .vim/syntax/c.vim highlighting
+hi cCustomFunc cterm=NONE ctermfg=050
+hi cCustomClass cterm=bold ctermfg=047
+
 
 " vim: sw=2
