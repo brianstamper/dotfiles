@@ -43,17 +43,17 @@ hi WarningMsg ctermfg=DarkRed
 hi WildMenu   ctermfg=Black       ctermbg=Yellow
 
 " syntax highlighting
-hi Comment    cterm=NONE ctermfg=43
-hi Constant   cterm=NONE ctermfg=228
+hi Comment    cterm=NONE ctermfg=29
+hi Constant   cterm=NONE ctermfg=222
 hi Identifier cterm=NONE ctermfg=114
-hi PreProc    cterm=NONE ctermfg=81
+hi PreProc    cterm=NONE ctermfg=209
 hi Special    cterm=NONE ctermfg=130
 hi Statement  cterm=NONE ctermfg=159
-hi Type       cterm=bold ctermfg=130
+hi Type       cterm=NONE ctermfg=166
 
 " custom .vim/syntax/c.vim highlighting
 hi cCustomFunc cterm=NONE ctermfg=173
-hi cCustomClass cterm=bold ctermfg=208
+hi cCustomClass cterm=bold ctermfg=180
 
 
 " vim: sw=2
