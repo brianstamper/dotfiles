@@ -43,7 +43,7 @@ hi WarningMsg ctermfg=DarkRed
 hi WildMenu   ctermfg=Black       ctermbg=Yellow
 
 " syntax highlighting
-hi Comment    cterm=NONE ctermfg=29
+hi Comment    cterm=NONE ctermfg=72
 hi Constant   cterm=NONE ctermfg=222
 hi Identifier cterm=NONE ctermfg=114
 hi PreProc    cterm=NONE ctermfg=209
