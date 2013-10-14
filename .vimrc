@@ -21,6 +21,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 exe pathogen#infect()
 exe pathogen#helptags()
 
+" Map Ctrl-n to open the NERDTree panel
+map <C-n> :NERDTreeToggle<CR>
+
 " Have Vim load indentation rules and plugins according to the detected filetype.
 filetype plugin indent on
 
