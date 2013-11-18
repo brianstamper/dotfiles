@@ -24,6 +24,11 @@ exe pathogen#helptags()
 " Map Ctrl-n to open the NERDTree panel
 map <C-n> :NERDTreeToggle<CR>
 
+" Map buffer next, previous and close
+map <F7> :bn<CR>
+map <F6> :bp<CR>
+map <C-F12> :bd<CR>
+
 " Have Vim load indentation rules and plugins according to the detected filetype.
 filetype plugin indent on
 
