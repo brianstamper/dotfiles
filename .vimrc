@@ -24,6 +24,14 @@ exe pathogen#helptags()
 " Map Ctrl-n to open the NERDTree panel
 map <C-n> :NERDTreeToggle<CR>
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" Map buffer next, previous and close
+map <F7> :bn<CR>
+map <F6> :bp<CR>
+map <C-F12> :bd<CR>
+
 " Have Vim load indentation rules and plugins according to the detected filetype.
 filetype plugin indent on
 
