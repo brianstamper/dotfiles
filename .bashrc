@@ -223,7 +223,7 @@ export HOSTFILE=$HOME/.hosts    # Put a list of remote hosts in ~/.hosts
 # earlier startup scripts. (Note that ~/.bash_profile gets called before
 # ~/.bashrc).
 
-if [ -f ~/.bashrc-local ]; then
-    source ~/.bashrc-local
+if [ -f ~/.bashrc_local ]; then
+    source ~/.bashrc_local
 fi
 
