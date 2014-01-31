@@ -117,18 +117,18 @@ SLOAD=$(( 100*${NCPU} ))        # Small load
 MLOAD=$(( 200*${NCPU} ))        # Medium load
 XLOAD=$(( 400*${NCPU} ))        # Xlarge load
 
-# Returns system load as percentage, i.e., '40' rather than '0.40)'.
+# Returns system load
 function load()
 {
-    local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
+    local SYSLOAD=$(cut -d " " -f1 /proc/loadavg)
     # System load of the current host.
-    echo $((10#$SYSLOAD))       # Convert to decimal.
+    echo ${SYSLOAD}
 }
 
 # Returns a color indicating system load.
 function load_color()
 {
-    local SYSLOAD=$(load)
+    local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
     if [ ${SYSLOAD} -gt ${XLOAD} ]; then
         echo -en ${ALERT}
     elif [ ${SYSLOAD} -gt ${MLOAD} ]; then
@@ -162,6 +162,29 @@ function disk_color()
     fi
 }
 
+# Return number of suspended jobs
+function jobs_s()
+{
+    echo $(jobs -s | wc -l)
+}
+
+# Return number of running jobs
+function jobs_r()
+{
+    echo $(jobs -r | wc -l)
+}
+
+# Return prompt string with jobs info, returns nothing if jobs=0
+function jobs_info()
+{
+    if [ $(jobs_r) -gt "0" ]; then
+        echo -en ${Black}${On_Green}$(jobs_r)${NC}' '
+    fi
+    if [ $(jobs_s) -gt "0" ]; then
+        echo -en ${Black}${On_Red}$(jobs_s)${NC}' '
+    fi
+}
+
 # Returns a color according to running/suspended jobs.
 function job_color()
 {
@@ -177,16 +200,21 @@ function job_color()
 
 # Now we construct the prompt.
 PROMPT_COMMAND="history -a"
+PBC=${Green}  # Prompt base color
 case ${TERM} in
   *term | rxvt | linux)
-        # Time of day (with load info):
-        PS1="\[\$(load_color)\][\A\[${NC}\] "
+        # Time of day:
+        PS1="\[${PBC}\][\A "
+        # Jobs info:
+        PS1=${PS1}"\[\$(jobs_info)\]"
+        # Load info:
+        PS1=${PS1}"\[\$(load_color)\]\$(load)\[${NC}\]|"
         # User@Host (with connection type info):
-        PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
+        PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${PBC}\] "
         # PWD (with 'disk space' info):
-        PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
+        PS1=${PS1}"\[\$(disk_color)\]\W\[${NC}\]] "
         # Prompt (with 'job' info):
-        PS1=${PS1}"\[\$(job_color)\]\[${NC}\]"
+#        PS1=${PS1}"\[\$(job_color)\]\[${NC}\]"
         # Set title of current xterm:
         PS1=${PS1}"\[\e]0;[\u@\h] \w\a\]"
         ;;
@@ -215,7 +243,9 @@ export HISTIGNORE="&:bg:fg:ll:h"
 export HISTTIMEFORMAT="$(echo -e ${BCyan})[%F %T]$(echo -e ${NC}) "
 export HOSTFILE=$HOME/.hosts    # Put a list of remote hosts in ~/.hosts
 
-
+# Set vim as default editor
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 
 # ~/.bashrc-local allows for settings which are unique to specific machines and
 # are not included in the github dotfiles repository. It should be called last 
