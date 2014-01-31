@@ -212,9 +212,7 @@ case ${TERM} in
         # User@Host (with connection type info):
         PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${PBC}\] "
         # PWD (with 'disk space' info):
-        PS1=${PS1}"\[\$(disk_color)\]\W\[${NC}\]] "
-        # Prompt (with 'job' info):
-#        PS1=${PS1}"\[\$(job_color)\]\[${NC}\]"
+        PS1=${PS1}"\[\$(disk_color)\]\W\\[${PBC}\]]\[${NC}\] "
         # Set title of current xterm:
         PS1=${PS1}"\[\e]0;[\u@\h] \w\a\]"
         ;;
