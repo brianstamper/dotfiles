@@ -5,29 +5,44 @@
 "
 
 set nocompatible
-" making the switch from tpope/pathogen to gmarik/vundle for plugin management
-" following
-" http://blog.thomasupton.com/2014/02/migrating-from-pathogen-to-vundle/
 
+" Switching from vundle to neobundle..
+" Following install guide on https://github.com/Shougo/neobundle.vim
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-" Required Vundle setup
-filetype off    " Required by vundle, gets turned back on again later below
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-" From http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/
-" Relaunch vim, run :BundleInstall to install the “bundles” you listed in .vimrc.
-" When you want to update them, :BundleUpdate. To remove a plugin, just delete 
-" its line in your .vimrc file then relaunch vim and run:BundleClean to remove 
-" its folder inside ~/.vim/bundle/
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-
-" Vundle itslef, http://github.com/gmarik/vundle
-Bundle 'gmarik/vundle'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+     \ }
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'm2mdas/phpcomplete-extended'
 
 " https://github.com/scrooloose/nerdtree
-Bundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+
+" Enable omnicomplete for phpcomplete-extended
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " Try to use 256 colors
 set t_Co=256
@@ -52,9 +67,6 @@ cmap w!! w !sudo tee > /dev/null %
 map <F7> :bn<CR>
 map <F6> :bp<CR>
 map <C-F12> :bd<CR>
-
-" Have Vim load indentation rules and plugins according to the detected filetype.
-filetype plugin indent on
 
 set autochdir       " Automatically change window's cwd to file's dir
 set showcmd         " Show (partial) command in status line.
