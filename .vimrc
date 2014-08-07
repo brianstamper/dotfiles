@@ -4,6 +4,23 @@
 " http://unlogic.co.uk/posts/vim-python-ide.html
 "
 
+set nocompatible
+" making the switch from tpope/pathogen to gmarik/vundle for plugin management
+" following
+" http://blog.thomasupton.com/2014/02/migrating-from-pathogen-to-vundle/
+
+
+" Required Vundle setup
+filetype off    " Required by vundle, gets turned back on again later below
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+" Vundle itslef, http://github.com/gmarik/vundle
+Bundle 'gmarik/vundle'
+
+" https://github.com/scrooloose/nerdtree
+Bundle 'scrooloose/nerdtree'
+
+
 " Try to use 256 colors
 set t_Co=256
 colorscheme brian
@@ -16,10 +33,6 @@ set cursorline cursorcolumn
 
 " Have Vim jump to the last position when reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" Set up pathogen https://github.com/tpope/vim-pathogen
-exe pathogen#infect()
-exe pathogen#helptags()
 
 " Map Ctrl-n to open the NERDTree panel
 map <C-n> :NERDTreeToggle<CR>
