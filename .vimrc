@@ -14,6 +14,14 @@ set nocompatible
 filetype off    " Required by vundle, gets turned back on again later below
 set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
+
+" From http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/
+" Relaunch vim, run :BundleInstall to install the “bundles” you listed in .vimrc.
+" When you want to update them, :BundleUpdate. To remove a plugin, just delete 
+" its line in your .vimrc file then relaunch vim and run:BundleClean to remove 
+" its folder inside ~/.vim/bundle/
+
+
 " Vundle itslef, http://github.com/gmarik/vundle
 Bundle 'gmarik/vundle'
 
