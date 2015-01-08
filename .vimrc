@@ -3,46 +3,28 @@
 " /usr/share/vim/vimrc
 " http://unlogic.co.uk/posts/vim-python-ide.html
 "
-
 set nocompatible
+set autochdir       " Automatically change window's cwd to file's dir
+filetype off
 
-" Switching from vundle to neobundle..
-" Following install guide on https://github.com/Shougo/neobundle.vim
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-     \ }
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'm2mdas/phpcomplete-extended'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " https://github.com/scrooloose/nerdtree
-NeoBundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
-call neobundle#end()
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
-
-" Enable omnicomplete for phpcomplete-extended
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " Try to use 256 colors
 set t_Co=256
@@ -55,7 +37,8 @@ syntax on
 set cursorline cursorcolumn
 
 " Have Vim jump to the last position when reopening a file
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe
+"normal! g'\"" | endif
 
 " Map Ctrl-n to open the NERDTree panel
 map <C-n> :NERDTreeToggle<CR>
@@ -68,7 +51,7 @@ map <F7> :bn<CR>
 map <F6> :bp<CR>
 map <C-F12> :bd<CR>
 
-set autochdir       " Automatically change window's cwd to file's dir
+
 set showcmd         " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
