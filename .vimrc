@@ -4,7 +4,6 @@
 " http://unlogic.co.uk/posts/vim-python-ide.html
 "
 set nocompatible
-set autochdir       " Automatically change window's cwd to file's dir
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -52,6 +51,7 @@ map <F6> :bp<CR>
 map <C-F12> :bd<CR>
 
 
+set autochdir       " Automatically change window's cwd to file's dir
 set showcmd         " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
