@@ -13,8 +13,18 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" https://github.com/scrooloose/nerdtree
+" File browser
 Plugin 'scrooloose/nerdtree'
+
+" Status line (needs some work)
+"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Git integration
+Plugin 'tpope/vim-fugitive'
+
+" Python mode
+"Plugin 'klen/python-mode'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
