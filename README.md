@@ -17,6 +17,8 @@ then the rest
     sudo apt install vim
     alias vi='vim'
     sudo apt install git
+    git config --global user.email "..."
+    git config --global user.name "Brian Stamper"
     git clone https://github.com/brianstamper/dotfiles.git
     dotfiles/setup.sh
 
