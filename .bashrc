@@ -202,7 +202,7 @@ function job_color()
 PROMPT_COMMAND="history -a"
 PBC=${Green}  # Prompt base color
 case ${TERM} in
-  *term | rxvt | linux)
+  *term* | rxvt | linux)
         # Time of day:
         PS1="\[${PBC}\][\A "
         # Jobs info:

@@ -5,7 +5,7 @@ Common Linux config files, primarily for Bash and Vim. These have been configure
 
 Usual build steps for Kubuntu:
 
-do wireless config during install
+do wireless config during install, without PIM, with third party
 post install, do this otherwise freezes occur: 
 
     sudo apt install nvidia-384
@@ -22,4 +22,6 @@ then the rest
     git clone https://github.com/brianstamper/dotfiles.git
     dotfiles/setup.sh
 
+System settings, power management, set up suspend on lid close
 
+install libre office
