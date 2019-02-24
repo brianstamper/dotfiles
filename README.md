@@ -6,14 +6,20 @@ Common Linux config files, primarily for Bash and Vim. These have been configure
 Usual build steps for Kubuntu:
 
 do wireless config during install, without PIM, with third party
-post install, do this otherwise freezes occur: 
+post install, do this otherwise freezes occur:
+(see https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)
 
-    sudo apt install nvidia-384
+    sudo add-apt-repository ppa:graphics-drivers/ppa
+    sudo apt update
+    ubuntu-drivers devices
+    sudo ubuntu-drivers autoinstall
     shutdown -r now
+
+currently this gives me nvidia-415 for my GeForce 750ti
 
 then the rest
 
-    sudo apt-get update
+    sudo apt update
     sudo apt install vim
     alias vi='vim'
     sudo apt install git
