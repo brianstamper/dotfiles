@@ -1,6 +1,8 @@
 # Parts of the following ~/.bashrc file were taken from
 #    http://tldp.org/LDP/abs/html/sample-bashrc.html
 
+# Use Xmodmap to disable Caps Lock so xbindkeys can make it a mouse click
+/usr/bin/xmodmap -e "keycode 66="
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
