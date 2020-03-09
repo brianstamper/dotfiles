@@ -30,6 +30,16 @@ then the rest
     
     git config --global credential.helper 'cache --timeout=1000000000'
 
+Instead of/in addition to  credential.helper?
+    ssh-keygen -t rsa -C "..."
+    cat .ssh/id_rsa.pub 
+
+And go to Settings on Github to add that key, then test it with
+
+    ssh -T git@github.com
+
+
+
 vi /etc/apt/apt.conf.d/20auto-upgrades, disable automatic updates, change both 1s to 0
 
 System settings, power management, set up suspend on lid close
