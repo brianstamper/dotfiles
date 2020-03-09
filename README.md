@@ -41,6 +41,7 @@ And go to Settings on Github to add that key, then test it with
 
 
 disable automatic updates, change both 1s to 0
+
     vi /etc/apt/apt.conf.d/20auto-upgrades
 
 Do system settings, power management, set up suspend on lid close
@@ -96,6 +97,6 @@ OR, build my custom version using docker
     cd rstudio/docker/
     sudo ./docker-compile.sh bionic-amd64 desktop
     cd package/
-    sudo dpkg -i rstudio-99.9.9-amd64.deb 
+    sudo dpkg -i rstudio-99.9.9-amd64.deb # Make sure this is the right file name
    
    
