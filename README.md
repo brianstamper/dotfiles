@@ -31,6 +31,7 @@ then the rest
     git config --global credential.helper 'cache --timeout=1000000000'
 
 Instead of/in addition to  credential.helper?
+
     ssh-keygen -t rsa -C "..."
     cat .ssh/id_rsa.pub 
 
