@@ -62,7 +62,22 @@ https://rstudio.com/products/rstudio/download/#download
     sudo apt install -f       because the above line had dependency errors
     sudo dpkg -i rstudio-1.2.5033-amd64.deb
 
+OR, build my custom version using docker
 
-   
+    # install Docker https://docs.docker.com/install/linux/docker-ce/ubuntu/
+    sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+    sudo apt install docker-ce docker-ce-cli containerd.io
+    mkdir projects
+    cd projects/
+    git clone git@github.com:brianstamper/rstudio.git
+    cd rstudio/docker/
+    sudo ./docker-compile.sh bionic-amd64 desktop
+    cd package/
+    sudo dpkg -i rstudio-99.9.9-amd64.deb 
    
    
