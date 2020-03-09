@@ -30,39 +30,37 @@ then the rest
     
     git config --global credential.helper 'cache --timeout=1000000000'
 
-vi /etc/apt/apt.conf.d/20-auto-upgrades, disable automatic updates
+vi /etc/apt/apt.conf.d/20auto-upgrades, disable automatic updates, change both 1s to 0
 
 System settings, power management, set up suspend on lid close
 
-install libre office, chromium
+install libre office, chromium, acpi
 
 
 Set up linear algebra backend, install Armadillo
 
-Something along these lines:
+    sudo apt install cmake
+    sudo apt install libopenblas-dev
+    sudo apt install liblapack-dev
+    sudo apt install libarpack2-dev
+    sudo apt install libsuperlu-dev
 
+download Armadillo from http://arma.sourceforge.net/download.html
+move the tar to ~/ and do tar -xf ..
+cd to that dir and follow build instructions in README.md
 
-   18  [2018-12-14 23:39:13] sudo apt install cmake libopenblas-dev liblapack-dev
-   19  [2018-12-14 23:46:05] sudo apt install libarpack2-dev
-   20  [2018-12-14 23:46:22] sudo apt install libarpack++2-dev
-   21  [2018-12-14 23:47:26] sudo apt install g++
-   22  [2018-12-14 23:48:07] sudo apt install build-essential
-   23  [2018-12-14 23:48:49] sudo apt install gfortran
-   26  [2018-12-15 00:08:47] tar -xvJf Downloads/armadillo-9.200.6.tar.xz 
-   29  [2018-12-15 00:10:28] mv armadillo-9.200.6 /opt/
-   30  [2018-12-15 00:12:27] ll /usr/local
-   31  [2018-12-15 00:25:18] ll armadillo-9.200.6/
-   32  [2018-12-15 00:25:36] less armadillo-9.200.6/README.md 
-   33  [2018-12-15 00:26:00] chromium-browser armadillo-9.200.6/index.html &
-   34  [2018-12-15 00:28:15] cd armadillo-9.200.6
-   35  [2018-12-15 00:28:19] cmake .
-   36  [2018-12-15 00:30:33] make
-   37  [2018-12-15 00:30:44] sudo make install
+Go to https://cran.r-project.org/bin/linux/ubuntu/README.html
+and follow instructions there, but do this:
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+before doing sudo apt update
 
-Install gdebi-kde, RStudio, steam
+check sessionInfo() to see if OpenBLAS is being used
+https://stackoverflow.com/a/59293874/2768944
 
-Follow https://cran.rstudio.com/bin/linux/ubuntu/README.html , add repo to apt.sources
-and do the apt-key: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+https://rstudio.com/products/rstudio/download/#download
+    sudo dpkg -i rstudio-1.2.5033-amd64.deb
+    sudo apt install -f       because the above line had dependency errors
+    sudo dpkg -i rstudio-1.2.5033-amd64.deb
 
 
    
