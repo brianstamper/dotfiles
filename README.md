@@ -39,12 +39,14 @@ And go to Settings on Github to add that key, then test it with
     ssh -T git@github.com
 
 
+disable automatic updates, change both 1s to 0
+    vi /etc/apt/apt.conf.d/20auto-upgrades
 
-vi /etc/apt/apt.conf.d/20auto-upgrades, disable automatic updates, change both 1s to 0
+Do system settings, power management, set up suspend on lid close
 
-System settings, power management, set up suspend on lid close
+Some basics
 
-install libre office, chromium, acpi
+    sudo apt install libreoffice chromium-browser acpi
 
 
 Set up linear algebra backend, install Armadillo
@@ -56,18 +58,23 @@ Set up linear algebra backend, install Armadillo
     sudo apt install libsuperlu-dev
 
 download Armadillo from http://arma.sourceforge.net/download.html
+
 move the tar to ~/ and do tar -xf ..
+
 cd to that dir and follow build instructions in README.md
 
 Go to https://cran.r-project.org/bin/linux/ubuntu/README.html
-and follow instructions there, but do this:
+
+and follow instructions there, but do this before doing sudo apt update:
+
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-before doing sudo apt update
+
 
 check sessionInfo() to see if OpenBLAS is being used
 https://stackoverflow.com/a/59293874/2768944
 
 https://rstudio.com/products/rstudio/download/#download
+
     sudo dpkg -i rstudio-1.2.5033-amd64.deb
     sudo apt install -f       because the above line had dependency errors
     sudo dpkg -i rstudio-1.2.5033-amd64.deb
