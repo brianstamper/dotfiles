@@ -103,6 +103,6 @@ OR, build my custom version using docker
     cd rstudio/docker/
     sudo ./docker-compile.sh bionic-amd64 desktop
     cd package/
-    sudo dpkg -i rstudio-99.9.9-amd64.deb 
+    sudo dpkg -i rstudio-99.9.9-amd64.deb # Make sure this is the right file name
    
    
