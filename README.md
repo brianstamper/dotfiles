@@ -31,6 +31,7 @@ then the rest
     git config --global credential.helper 'cache --timeout=1000000000'
 
 Instead of/in addition to  credential.helper?
+
     ssh-keygen -t rsa -C "..."
     cat .ssh/id_rsa.pub 
 
@@ -39,8 +40,15 @@ And go to Settings on Github to add that key, then test it with
     ssh -T git@github.com
 
 
-disable automatic updates, change both 1s to 0
-    vi /etc/apt/apt.conf.d/20auto-upgrades
+Disable automatic updates, change both 1s to 0
+    sudo vi /etc/apt/apt.conf.d/20auto-upgrades
+
+Modify pulseaudio config to loopback line in to the speakers (for stereo plugged into line in)
+Add 'load-module module-loopback' to the bottom of this file:
+    sudo vi /etc/pulse/default.pa
+
+Add myself to the lp group to permit printing
+    sudo usermod -a -G lp brian
 
 Do system settings, power management, set up suspend on lid close
 
