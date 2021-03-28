@@ -231,11 +231,15 @@ esac
 alias ll='ls -al --color=tty' 2>/dev/null
 alias l.='ls -d .* --color=tty' 2>/dev/null
 alias ls='ls --color=tty' 2>/dev/null
+alias vi='vim'
+alias pacman='pacman --color auto'
+alias dmesg='dmesg -H --color'
+alias sudo='sudo '
 
 # Simplfy history searching, type partial command and press up/down arrow.
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-alias h='history 20'
+alias h='history 50'
 
 export HISTSIZE=100000
 export HISTFILESIZE=100000
