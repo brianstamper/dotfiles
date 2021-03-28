@@ -240,6 +240,7 @@ alias sudo='sudo '
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 alias h='history 50'
+alias hh='history | less -R'
 
 export HISTSIZE=100000
 export HISTFILESIZE=100000
