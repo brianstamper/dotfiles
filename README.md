@@ -55,6 +55,11 @@ Add myself to the lp group to permit printing
 
 Do system settings, power management, set up suspend on lid close
 
+Actions for switching dual monitors 2nd display on/off
+
+    xrandr --output DVI-I-1 --auto --left-of HDMI-0
+    xrandr --output DVI-I-1 --off
+
 Some basics
 
     sudo apt install libreoffice chromium-browser acpi
